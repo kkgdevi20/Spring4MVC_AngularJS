@@ -40,9 +40,12 @@ public class UserServiceImpl implements UserService{
 	
 	//Insert user
 	public void saveUser(User user) {
-		//user.setId(counter.incrementAndGet());
-		User userMaxId =userRepository.findOne();
-		user.setId(userMaxId.getId()+1);
+		Long id = 1L;
+		User userWithMaxId =userRepository.findOne();
+		if(userWithMaxId != null){
+			id = userWithMaxId.getId()+1; 
+		}
+		user.setId(id);
 		userRepository.save(user); // CrudRepository
 	}
 
