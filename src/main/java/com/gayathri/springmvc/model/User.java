@@ -16,10 +16,9 @@ public class User {
 	private String email;
 	
 	public User(){
-		id=0L;
 	}
 	
-	public User(long id, String username, String address, String email){
+	public User(Long id, String username, String address, String email){
 		this.id = id;
 		this.username = username;
 		this.address = address;

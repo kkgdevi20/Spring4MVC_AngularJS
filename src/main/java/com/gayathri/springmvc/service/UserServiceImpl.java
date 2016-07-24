@@ -1,7 +1,6 @@
 package com.gayathri.springmvc.service;
 
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,8 +12,6 @@ import com.gayathri.springmvc.repository.UserRepository;
 @Service("userService")
 @Transactional
 public class UserServiceImpl implements UserService{
-	
-	private static final AtomicLong counter = new AtomicLong();
 	
 	@Autowired
 	UserRepository userRepository;
@@ -43,7 +40,9 @@ public class UserServiceImpl implements UserService{
 	
 	//Insert user
 	public void saveUser(User user) {
-		user.setId(counter.incrementAndGet());
+		//user.setId(counter.incrementAndGet());
+		User userMaxId =userRepository.findOne();
+		user.setId(userMaxId.getId()+1);
 		userRepository.save(user); // CrudRepository
 	}
 

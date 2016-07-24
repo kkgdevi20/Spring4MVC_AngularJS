@@ -88,7 +88,7 @@
                   <table class="table table-hover">
                       <thead>
                           <tr>
-                              <th>ID.</th>
+                          	  <th>ID</th>                         
                               <th>Name</th>
                               <th>Address</th>
                               <th>Email</th>
@@ -97,7 +97,7 @@
                       </thead>
                       <tbody>
                           <tr ng-repeat="u in ctrl.users">
-                              <td><span ng-bind="u.id"></span></td>
+                          	  <td><span ng-bind="u.id"></span></td>
                               <td><span ng-bind="u.username"></span></td>
                               <td><span ng-bind="u.address"></span></td>
                               <td><span ng-bind="u.email"></span></td>

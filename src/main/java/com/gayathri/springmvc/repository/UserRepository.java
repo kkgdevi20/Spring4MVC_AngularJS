@@ -15,4 +15,7 @@ public interface UserRepository extends MongoRepository<User, String> {
 	@Query("{ '_id' : ?0 }")
     User findById(@Param("id") Long id);	
 	
+	@Query("{},$orderby:{'_id': -1}")
+	User findOne();
+	
 }
